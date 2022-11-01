@@ -42,7 +42,7 @@ namespace Dragut_Diana_Lab2.Pages.Books
 
         public async Task<IActionResult> OnPostAsync(string[] selectedCategories)
         {
-            var newBook = new Book();
+            var newBook = Book;
             if (selectedCategories != null)
             {
                 newBook.BookCategory = new List<BookCategory>();
@@ -56,7 +56,7 @@ namespace Dragut_Diana_Lab2.Pages.Books
                 }
             }
 
-            if (await TryUpdateModelAsync<Book>(
+            /*if (await TryUpdateModelAsync<Book>(
                 newBook,
                 "Book",
                 i => i.Title,
@@ -64,11 +64,11 @@ namespace Dragut_Diana_Lab2.Pages.Books
                 i => i.Price,
                 i => i.PublishingDate,
                 i => i.PublisherID))
-            {
+            {*/
                 _context.Book.Add(newBook);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
-            }
+            //}
 
             PopulateAssignedCategoryData(_context, newBook);
             return Page();
