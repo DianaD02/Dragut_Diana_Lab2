@@ -42,8 +42,10 @@
                     </div> 
              </form>
             
-             <div class="form-group"> <div class="table"> 
-                 <table> <tr> 
+             <div class="form-group"> 
+                 <div class="table"> 
+                 <table> 
+                     <tr> 
                  @{  
                     int cnt = 0;
                     foreach (var cat in Model.AssignedCategoryDataList) 
@@ -59,7 +61,7 @@
                                                         @cat.Name 
                                                      @:</td> 
                           } 
-                             }@: </tr>
+                             }@:</tr>
                           } 
                     </table> 
                    </div> 
