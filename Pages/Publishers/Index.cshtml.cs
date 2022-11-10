@@ -29,7 +29,7 @@ namespace Dragut_Diana_Lab2.Pages.Publishers
         {   PublisherData=new PublisherIndexData();
             PublisherData.Publishers=await _context.Publisher
                 .Include(i=> i.Books)
-                   .ThenInclude(c =>c.Author)
+                   .ThenInclude(i=>i.Author)
                 .OrderBy(i=>i.PublisherName)
                 .ToListAsync();
             if (id != null)
