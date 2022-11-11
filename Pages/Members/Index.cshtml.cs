@@ -25,7 +25,7 @@ namespace Dragut_Diana_Lab2.Pages.Members
         {
             if (_context.Member != null)
             {
-                Member = await _context.Member.ToListAsync();
+                Member=await _context.Member.ToListAsync();
             }
         }
     }

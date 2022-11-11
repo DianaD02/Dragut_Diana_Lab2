@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Dragut_Diana_Lab2.Data;
 using Dragut_Diana_Lab2.Models;
+using Dragut_Diana_Lab2.Migrations;
 
 namespace Dragut_Diana_Lab2.Pages.Borrowings
 {
@@ -25,7 +26,7 @@ namespace Dragut_Diana_Lab2.Pages.Borrowings
         {
             if (_context.Borrowing != null)
             {
-                Borrowing = await _context.Borrowing
+                Borrowing= await _context.Borrowing
                 .Include(b => b.Book)
                     .ThenInclude(b => b.Author)
                 .Include(b => b.Member).ToListAsync();

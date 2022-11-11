@@ -2,24 +2,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Dragut_Diana_Lab2.Data;
 using Microsoft.AspNetCore.Identity;
+using Dragut_Diana_Lab2.Data;
+using Dragut_Diana_Lab2.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<Dragut_Diana_Lab2Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Dragut_Diana_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Dragut_Diana_Lab2Context' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Dragut_Diana_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Dragut_Diana_Lab22Context' not found.")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<LibraryIdentityContext>();
 
+//------
 builder.Services.AddDbContext<LibraryIdentityContext>(options =>
-
-options.UseSqlServer(builder.Configuration.GetConnectionString("Dragut_Diana_Lab2Context") ?? throw new InvalidOperationException("Connectionstring 'Dragut_Diana_Lab2Context' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Dragut_Diana_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Dragut_Diana_Lab2Context' not found.")));
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
-options.SignIn.RequireConfirmedAccount = true)
- .AddEntityFrameworkStores<LibraryIdentityContext>();
-
-
+    options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<LibraryIdentityContext>();
 
 var app = builder.Build();
 
@@ -35,7 +33,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
+app.UseAuthentication(); ;
 
 app.UseAuthorization();
 
